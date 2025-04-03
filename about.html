@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Moderno - Nosotros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Encabezado */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            padding: 15px 0;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #8B4513;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style-type: none;
+        }
+        
+        .nav-links li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links li a:hover {
+            color: #8B4513;
+        }
+        
+        /* Sección Hero */
+        .hero {
+            background-image: url("https://raw.githubusercontent.com/Iaac17/imagen_Cafe/23e8bf242143a77024b78faad49df33c2d1783d4/Banners/B3.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(111, 78, 55, 0.6);
+            background-blend-mode: multiply;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+                
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Nuestra Historia */
+        .our-story {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .story-image {
+            height: 400px;
+            background-image: url('https://raw.githubusercontent.com/Iaac17/imagen_Cafe/32b9e2551ce2e71766a075c675787f16f5669936/nosotro/pollygen-1741918160085.png');
+            background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+            background-position: center; /* Centra la imagen */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+                
+        h2 {
+            color: #8B4513;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .story-text p {
+            margin-bottom: 20px;
+        }
+        
+        /* Valores */
+        .values {
+            padding: 60px 0;
+            background-color: #F5DEB3;
+        }
+        
+        .values h2 {
+            text-align: center;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-card i {
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-bottom: 20px;
+        }
+        
+        .value-card h3 {
+            color: #8B4513;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* Equipo */
+        .team {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        
+        .team h2 {
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: #F5DEB3;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-image1 {
+            height: 250px;
+            background-image: url('https://raw.githubusercontent.com/Iaac17/imagen_Cafe/b35e4d06222f3e8258b1afc70035fa3c827580e0/nosotro/1.png'); /* Reemplaza con tu imagen */
+            background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+            background-position: center; /* Centra la imagen */
+        }
+
+        .member-image2 {
+            height: 250px;
+            background-image: url('https://raw.githubusercontent.com/Iaac17/imagen_Cafe/b35e4d06222f3e8258b1afc70035fa3c827580e0/nosotro/2.png'); /* Reemplaza con tu imagen */
+            background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+            background-position: center; /* Centra la imagen */
+        }
+
+        .member-image3 {
+            height: 250px;
+            background-image: url('https://raw.githubusercontent.com/Iaac17/imagen_Cafe/b35e4d06222f3e8258b1afc70035fa3c827580e0/nosotro/3.png'); /* Reemplaza con tu imagen */
+            background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+            background-position: center; /* Centra la imagen */
+        }
+
+        .member-image4 {
+            height: 250px;
+            background-image: url('https://raw.githubusercontent.com/Iaac17/imagen_Cafe/b35e4d06222f3e8258b1afc70035fa3c827580e0/nosotro/4.png'); /* Reemplaza con tu imagen */
+            background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+            background-position: center; /* Centra la imagen */
+        }
+
+        .team-member h3 {
+            margin-top: 20px;
+            color: #8B4513;
+            font-size: 1.3rem;
+        }
+        
+        .team-member p {
+            color: #8B4513;
+            margin: 10px 0 20px;
+        }
+        
+        /* Trayectoria */
+        .timeline {
+            padding: 60px 0;
+            background-color: #8B4513;
+            color: white;
+        }
+        
+        .timeline h2 {
+            text-align: center;
+            color: white;
+        }
+        
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #F5DEB3;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 20px;
+            background-color: white;
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content.left {
+            margin-left: auto;
+        }
+        
+        .timeline-content h3 {
+            color: #8B4513;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .timeline-content h4 {
+            color: #D2691E;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: #F5DEB3;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Pie de página */
+        footer {
+            background-color: #8B4513;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #F5DEB3;
+        }
+        
+        .footer-section ul {
+            list-style-type: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #F5DEB3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #fff;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-content {
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-coffee"></i>
+                        <span>Café Moderno</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="products.html">Productos</a></li>
+                    <li><a href="foro.html">Foro</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Nuestra Historia</h1>
+            <p>Conoce quiénes somos y nuestra pasión por el café</p>
+        </div>
+    </section>
+
+    <!-- Nuestra Historia -->
+    <section class="our-story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-text">
+                    <h2>Nuestra Historia</h2>
+                    <p>Café Moderno nació en 2010 con una simple pero poderosa visión: crear un espacio donde la pasión por el café de calidad se combinara con un ambiente acogedor y moderno.</p>
+                    <p>Lo que comenzó como una pequeña cafetería con apenas cinco mesas, se ha convertido en un referente de la cultura cafetera en nuestra ciudad, manteniendo siempre nuestros valores de calidad, sostenibilidad y comunidad.</p>
+                    <p>Cada taza que servimos cuenta una historia: la del agricultor que cultivó los granos, la del tostador que desarrolló el perfil de sabor, y la nuestra, que ponemos todo nuestro corazón en la preparación.</p>
+                </div>
+                <div class="story-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="values">
+        <div class="container">
+            <h2>Nuestros Valores</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i>☕</i>
+                    <h3>Calidad</h3>
+                    <p>Seleccionamos cuidadosamente los mejores granos de café y utilizamos técnicas de preparación que resaltan sus cualidades únicas.</p>
+                </div>
+                <div class="value-card">
+                    <i>🌱</i>
+                    <h3>Sostenibilidad</h3>
+                    <p>Trabajamos con productores que practican la agricultura sostenible y nos esforzamos por reducir nuestro impacto ambiental.</p>
+                </div>
+                <div class="value-card">
+                    <i>👥</i>
+                    <h3>Comunidad</h3>
+                    <p>Creamos un espacio donde las personas pueden conectarse, compartir ideas y sentirse parte de algo especial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section class="team">
+        <div class="container">
+            <h2>Nuestro Equipo</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image1"></div>
+                    <h3>María González</h3>
+                    <p>Fundadora & Barista Principal</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image2"></div>
+                    <h3>Carlos Rodríguez</h3>
+                    <p>Maestro Tostador</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image3"></div>
+                    <h3>Ana Martínez</h3>
+                    <p>Chef Pastelera</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image4"></div>
+                    <h3>Juan Pérez</h3>
+                    <p>Gerente de Operaciones</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trayectoria -->
+    <section class="timeline">
+        <div class="container">
+            <h2>Nuestra Trayectoria</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2010</h3>
+                        <h4>El comienzo</h4>
+                        <p>Abrimos nuestras puertas con una pequeña cafetería de 5 mesas.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content left">
+                        <h3>2013</h3>
+                        <h4>Expansión</h4>
+                        <p>Nos mudamos a un local más grande y comenzamos a tostar nuestro propio café.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2016</h3>
+                        <h4>Reconocimiento</h4>
+                        <p>Ganamos el premio a 'Mejor Cafetería de la Ciudad' por primera vez.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content left">
+                        <h3>2020</h3>
+                        <h4>Celebrando una década</h4>
+                        <p>Cumplimos 10 años y renovamos completamente nuestro espacio.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Hoy</h3>
+                        <h4>Mirando al futuro</h4>
+                        <p>Seguimos creciendo y compartiendo nuestra pasión por el café con más personas cada día.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-coffee"></i>
+                        <span>Café Moderno</span>
+                    </div>
+                    <p>Donde cada taza cuenta una historia y cada visita se convierte en un recuerdo.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="products.html">Productos</a></li>                    
+                        <li><a href="foro.html">Foro</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Horario</h3>
+                    <ul>
+                        <li>Lunes a Viernes: 7:00 - 21:00</li>
+                        <li>Sábados y Domingos: 8:00 - 22:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> Café Moderno. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

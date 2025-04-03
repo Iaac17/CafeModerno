@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Moderno - Inicio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            padding: 15px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #8B4513;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .nav-links li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #8B4513;
+        }
+
+       /* Menú hamburguesa para dispositivos móviles */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 25px;
+            background-color: #333;
+            margin-bottom: 4px;
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-toggle.active span {
+            background-color: #8B4513;
+        }
+         /* Sección Hero */
+        .hero {
+            background-image: url("https://raw.githubusercontent.com/Iaac17/imagen_Cafe/23e8bf242143a77024b78faad49df33c2d1783d4/Banners/B1.jpeg");
+            background-size: cover;
+            /* Hace que la imagen cubra todo el contenedor */
+            background-position: center;
+            /* Centra la imagen */
+            background-color: rgba(111, 78, 55, 0.6);
+            background-blend-mode: multiply;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .btn-primary {
+            background-color: #8B4513;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #D2691E;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Productos Destacados */
+        .featured-products {
+            padding: 60px 0;
+            background-color: #F5DEB3;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #8B4513;
+            font-size: 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            background-color: #D2B48C;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            color: #8B4513;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #D2691E;
+            margin: 10px 0;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        /* Centrar el botón de comprar */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* Reservaciones */
+        .reservation {
+            padding: 60px 0;
+            background-color: #8B4513;
+            color: white;
+        }
+
+        .reservation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .reservation-calendar {
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .reservation-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .reservation-info ul {
+            list-style-type: none;
+        }
+
+        .reservation-info li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .reservation-info li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #F5DEB3;
+            font-weight: bold;
+        }
+
+        /* Información */
+        .info-section {
+            padding: 60px 0;
+            background-color: #f4f4f4;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            color: #8B4513;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #8B4513;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #F5DEB3;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #F5DEB3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Calendario */
+        #calendar {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        #calendar th,
+        #calendar td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #calendar th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        #calendar .today {
+            background-color: #e6f2ff;
+        }
+
+        #calendar .selected {
+            background-color: #8B4513;
+            color: white;
+        }
+
+        #calendar td:not(.booked):not(.past) {
+            cursor: pointer;
+        }
+
+        #calendar td:not(.booked):not(.past):hover {
+            background-color: #f0e6d2;
+        }
+
+        #calendar td.booked {
+            background-color: #ffcccc;
+            color: #cc0000;
+            position: relative;
+        }
+
+        #calendar td.past {
+            background-color: #f9f9f9;
+            color: #999;
+        }
+
+        #calendar td.booked::after {
+            content: "✕";
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            font-size: 10px;
+            color: #cc0000;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .calendar-nav {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #8B4513;
+        }
+
+        .calendar-month {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #8B4513;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #8B4513;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .calendar-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+        }
+
+        .legend-available {
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        .legend-selected {
+            background-color: #8B4513;
+        }
+
+        .legend-booked {
+            background-color: #ffcccc;
+        }
+
+        /* Estilos para las ventanas modales */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1050;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #8B4513;
+        }
+
+        .close-modal:hover {
+            color: #D2691E;
+        }
+
+        #confirmationDetails {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #F5DEB3;
+            border-radius: 5px;
+            line-height: 1.6;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .modal-title {
+            color: #8B4513;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .selected-date-display {
+            background-color: #F5DEB3;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #8B4513;
+        }
+
+        .product-details {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #F5DEB3;
+            border-radius: 5px;
+            line-height: 1.6;
+        }
+
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            background-color: #F5DEB3;
+            color: #8B4513;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            /* Ocultar los enlaces de navegación en la versión de escritorio */
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #fff;
+                width: 100%;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+            }
+
+            .nav-links li a {
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+            }
+
+            /* Mostrar el menú hamburguesa en la versión móvil */
+            .menu-toggle {
+                display: flex;
+            }
+            .container {
+             padding: 0 10px; /* Reducir el padding lateral */
+            }
+
+            .hero {
+                padding: 40px 0; /* Reducir el padding superior e inferior */
+            }
+
+            .hero h1 {
+                font-size: 2rem; /* Reducir el tamaño del título */
+            }
+
+            .hero p {
+                font-size: 1rem; /* Reducir el tamaño del párrafo */
+            }
+            .reservation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Estilos para las ventanas modales */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1050;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #8B4513;
+        }
+
+        .close-modal:hover {
+            color: #D2691E;
+        }
+
+        #confirmationDetails {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #F5DEB3;
+            border-radius: 5px;
+            line-height: 1.6;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .modal-title {
+            color: #8B4513;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .selected-date-display {
+            background-color: #F5DEB3;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #8B4513;
+        }
+
+        .product-details {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #F5DEB3;
+            border-radius: 5px;
+            line-height: 1.6;
+        }
+
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            background-color: #F5DEB3;
+            color: #8B4513;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        </style>
+
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-coffee"></i>
+                        <span>Café Moderno</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="products.html">Productos</a></li>
+                    <li><a href="foro.html">Foro</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Café Moderno</h1>
+            <p>Donde cada taza cuenta una historia</p>
+            <div>
+                <a href="products.html" class="btn btn-primary">Ver Productos</a>
+                <a href="contact.html" class="btn btn-secondary">Contáctanos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>Nuestros Cafés Destacados</h2>
+            <div class="product-grid" id="featuredProductsGrid">
+                <!-- Aquí se insertarán los productos destacados -->
+            </div>
+            <div class="text-center" style="margin-top: 30px;">
+                <a href="products.html" class="btn btn-primary">Ver Todos los Productos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservaciones -->
+    <section class="reservation">
+        <div class="container">
+            <h2>Reserva Tu Visita</h2>
+            <div class="reservation-grid">
+                <div class="reservation-calendar">
+                    <h3>Calendario de Reservas</h3>
+                    <p>Selecciona una fecha disponible para hacer tu reservación.</p>
+
+                    <div class="calendar-header">
+                        <button class="calendar-nav" id="prevMonth">◀</button>
+                        <span class="calendar-month" id="currentMonth"></span>
+                        <button class="calendar-nav" id="nextMonth">▶</button>
+                    </div>
+
+                    <table id="calendar">
+                        <thead>
+                            <tr>
+                                <th>Dom</th>
+                                <th>Lun</th>
+                                <th>Mar</th>
+                                <th>Mié</th>
+                                <th>Jue</th>
+                                <th>Vie</th>
+                                <th>Sáb</th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendarBody">
+                            <!-- El calendario se generará con JavaScript -->
+                        </tbody>
+                    </table>
+
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <div class="legend-color legend-available"></div>
+                            <span>Disponible</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-selected"></div>
+                            <span>Seleccionado</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-booked"></div>
+                            <span>Reservado</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reservation-info">
+                    <h3>¿Por qué reservar?</h3>
+                    <ul>
+                        <li>Evita esperas y asegura tu mesa en los horarios más concurridos</li>
+                        <li>Acceso a nuestras degustaciones especiales para clientes con reserva</li>
+                        <li>Elige tu ubicación favorita dentro de nuestro local</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <i>🕒</i>
+                    <h3>Horario</h3>
+                    <p>Lunes a Viernes: 7:00 - 21:00</p>
+                    <p>Sábados y Domingos: 8:00 - 22:00</p>
+                </div>
+                <div class="info-card">
+                    <i>📍</i>
+                    <h3>Ubicación</h3>
+                    <p>Calle del Café 123</p>
+                    <p>Ciudad Cafetera, CP 12345</p>
+                </div>
+                <div class="info-card">
+                    <i>📞</i>
+                    <h3>Contacto</h3>
+                    <p>Tel: (123) 456-7890</p>
+                    <p>info@cafemoderno.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-coffee"></i>
+                        <span>Café Moderno</span>
+                    </div>
+                    <p>Donde cada taza cuenta una historia y cada visita se convierte en un recuerdo.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="products.html">Productos</a></li>
+                        <li><a href="foro.html">Foro</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Horario</h3>
+                    <ul>
+                        <li>Lunes a Viernes: 7:00 - 21:00</li>
+                        <li>Sábados y Domingos: 8:00 - 22:00</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span id="current-year">2025</span> Café Moderno. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal del Formulario de Reserva -->
+    <div id="reservationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeReservationModal">×</span>
+            <h3 class="modal-title">Hacer una Reservación</h3>
+            <div id="selectedDateDisplay" class="selected-date-display"></div>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="people">Número de personas:</label>
+                    <select id="people">
+                        <option value="1">1 persona</option>
+                        <option value="2" selected>2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                        <option value="5">5 personas</option>
+                        <option value="6">6 personas</option>
+                        <option value="7">7 personas</option>
+                        <option value="8">8 personas</option>
+                    </select>
+                </div>
+                <input type="hidden" id="reservationDate">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Confirmar Reservación</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeConfirmationModal">×</span>
+            <h3 class="modal-title">¡Reservación Confirmada!</h3>
+            <div id="confirmationDetails"></div>
+            <div class="modal-buttons">
+                <button id="whatsappButton" class="btn btn-primary">Confirmar por WhatsApp</button>
+                <button id="closeModalButton" class="btn btn-secondary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación de Compra -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closePurchaseModal">×</span>
+            <h3 class="modal-title">Confirmar Compra</h3>
+            <div class="product-details" id="productDetails">
+                <!-- Los detalles del producto se insertarán aquí -->
+            </div>
+            <div class="modal-buttons">
+                <button id="confirmPurchase" class="btn btn-primary">Confirmar y Comprar</button>
+                <button id="cancelPurchase" class="btn btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Establecer el año actual en el footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Calendario de Reservaciones
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarBody = document.getElementById('calendarBody');
+            const currentMonthElement = document.getElementById('currentMonth');
+            const prevMonthButton = document.getElementById('prevMonth');
+            const nextMonthButton = document.getElementById('nextMonth');
+            const reservationModal = document.getElementById('reservationModal');
+            const confirmationModal = document.getElementById('confirmationModal');
+            const bookingForm = document.getElementById('bookingForm');
+            const selectedDateDisplay = document.getElementById('selectedDateDisplay');
+            const reservationDateInput = document.getElementById('reservationDate');
+
+            // Modal de compra
+            const purchaseModal = document.getElementById('purchaseModal');
+            const closePurchaseModal = document.getElementById('closePurchaseModal');
+            const confirmPurchase = document.getElementById('confirmPurchase');
+            const cancelPurchase = document.getElementById('cancelPurchase');
+            const productDetails = document.getElementById('productDetails');
+
+            // API URL y el Grid para los productos destacados
+            const apiUrl =
+                "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLi-_P0e4uzO-t4caHNET-r1J5mpofEm9BH8oj2-EZ35nZheytnWJ7QwtQ1-nuU_coDIHtXpe4ObDqRPZ5ticw_S0cZKYkCwRRnPRBj8WzDlHD4V-J_MZZGg_Qut3jncj03t-LGE9J2XCj89COaGep9Lw11sfebe6Jh91NfsN_YP3hfJCLQ6Fd7bR6M6xN6IpH6SQHtlUQaZ1bkVviG3uc_TDIvWSRSzAXPSWpSDff1XhcCRfuMRCHXgMR-Oup6odygXbuRH44xo9d25Jb_Xizrcs3HKhw&lib=MIAaDXYW1K6rwn-7SZE5TVVmTezcJkO2f"; // Reemplaza con tu URL real
+            const featuredProductsGrid = document.getElementById('featuredProductsGrid');
+
+            // Variables para almacenar los detalles del producto seleccionado
+            let selectedProductName = '';
+            let selectedProductPrice = '';
+
+            let currentDate = new Date();
+            let selectedDate = null;
+
+            // Fechas ya reservadas (simulación)
+            let bookedDates = [];
+
+            // Cargar reservaciones guardadas en localStorage
+            const savedReservations = localStorage.getItem('reservations');
+            if (savedReservations) {
+                bookedDates = JSON.parse(savedReservations).map(dateStr => new Date(dateStr));
+            } else {
+                // Algunas fechas de ejemplo como reservadas
+                const today = new Date();
+                bookedDates = [
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 2),
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 5),
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 10)
+                ];
+                localStorage.setItem('reservations', JSON.stringify(bookedDates.map(date => date.toISOString())));
+            }
+
+            // Generar el calendario
+            function generateCalendar() {
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+
+                // Actualizar el encabezado del mes
+                const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto",
+                    "Septiembre", "Octubre", "Noviembre", "Diciembre"
+                ];
+                currentMonthElement.textContent = `${monthNames[month]} ${year}`;
+
+                // Limpiar el calendario
+                calendarBody.innerHTML = '';
+
+                // Obtener el primer día del mes
+                const firstDay = new Date(year, month, 1);
+                const startingDay = firstDay.getDay(); // 0 = Domingo, 1 = Lunes, etc.
+
+                // Obtener el número de días en el mes
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                // Fecha actual para marcar el día de hoy
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+
+                // Crear las filas del calendario
+                let date = 1;
+                for (let i = 0; i < 6; i++) {
+                    // Crear una fila
+                    const row = document.createElement('tr');
+
+                    // Crear las celdas
+                    for (let j = 0; j < 7; j++) {
+                        if (i === 0 && j < startingDay) {
+                            // Celdas vacías antes del primer día del mes
+                            const cell = document.createElement('td');
+                            row.appendChild(cell);
+                        } else if (date > daysInMonth) {
+                            // Salir si ya hemos mostrado todos los días del mes
+                            break;
+                        } else {
+                            // Crear la celda para el día
+                            const cell = document.createElement('td');
+                            cell.textContent = date;
+
+                            // Fecha para comparar
+                            const cellDate = new Date(year, month, date);
+
+                            // Verificar si es hoy
+                            if (cellDate.getTime() === today.getTime()) {
+                                cell.classList.add('today');
+                            }
+
+                            // Verificar si es una fecha pasada
+                            if (cellDate < today) {
+                                cell.classList.add('past');
+                            }
+
+                            // Verificar si está reservado
+                            const isBooked = bookedDates.some(bookedDate =>
+                                bookedDate.getDate() === cellDate.getDate() &&
+                                bookedDate.getMonth() === cellDate.getMonth() &&
+                                bookedDate.getFullYear() === cellDate.getFullYear()
+                            );
+
+                            if (isBooked) {
+                                cell.classList.add('booked');
+                            }
+
+                            // Verificar si es la fecha seleccionada
+                            if (selectedDate &&
+                                selectedDate.getDate() === cellDate.getDate() &&
+                                selectedDate.getMonth() === cellDate.getMonth() &&
+                                selectedDate.getFullYear() === cellDate.getFullYear()) {
+                                cell.classList.add('selected');
+                            }
+
+                            // Agregar evento click para fechas futuras no reservadas
+                            if (!isBooked && cellDate >= today) {
+                                cell.addEventListener('click', function () {
+                                    selectDate(cellDate);
+                                });
+                            }
+
+                            row.appendChild(cell);
+                            date++;
+                        }
+                    }
+
+                    calendarBody.appendChild(row);
+
+                    // Salir si ya hemos mostrado todos los días del mes
+                    if (date > daysInMonth) {
+                        break;
+                    }
+                }
+            }
+
+            // Función para seleccionar una fecha
+            function selectDate(date) {
+                // Limpiar selección anterior
+                const selectedCell = document.querySelector('.selected');
+                if (selectedCell) {
+                    selectedCell.classList.remove('selected');
+                }
+
+                // Actualizar fecha seleccionada
+                selectedDate = date;
+
+                // Actualizar el calendario
+                generateCalendar();
+
+                // Formatear la fecha para mostrarla
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                };
+                const formattedDate = date.toLocaleDateString('es-ES', options);
+
+                // Actualizar el campo de fecha en el modal
+                selectedDateDisplay.textContent = formattedDate;
+                reservationDateInput.value = date.toISOString();
+
+                // Mostrar el modal de reserva
+                reservationModal.style.display = 'block';
+            }
+             async function cargarProductosDestacados() {
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error(`Error al obtener los datos. Código de estado: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const cafes = data.cafes; // Asumiendo que 'cafes' es la categoría que quieres mostrar
+
+            if (cafes && Array.isArray(cafes)) {
+                // Mostrar solo los primeros 3 productos
+                const productosDestacados = cafes.slice(0, 3);
+                mostrarProductosEnGrid(productosDestacados);
+            } else {
+                console.warn("No se encontraron productos destacados o el formato de los datos es incorrecto.");
+                featuredProductsGrid.innerHTML = "<p>No se encontraron productos destacados.</p>";
+            }
+        } catch (error) {
+            console.error("Error al cargar los productos destacados:", error);
+            featuredProductsGrid.innerHTML = "<p>Error al cargar los productos destacados.</p>";
+        }
+    }
+
+    function mostrarProductosEnGrid(productos) {
+        featuredProductsGrid.innerHTML = ''; // Limpiar el grid antes de agregar los productos
+
+        productos.forEach(product => {
+            const card = crearTarjetaProducto(product);
+            featuredProductsGrid.appendChild(card);
+        });
+    }
+
+    function crearTarjetaProducto(product) {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+    
+        // Construir HTML para los tags
+        let tagsHTML = '';
+        if (product.características && product.características.tags && Array.isArray(product.características.tags)) {
+            product.características.tags.forEach(tag => {
+                tagsHTML += `<span class="tag">${tag}</span>`;
+            });
+        }
+    
+        card.innerHTML = `
+            <div class="product-image" style="background-image: url('${product['imagen (url)'] || 'URL_DE_IMAGEN_POR_DEFECTO'}'); background-size: cover; background-position: center;"></div>
+            <div class="product-info">
+                <h3>${product.título || 'Sin título'}</h3>
+                <div class="product-tags">
+                    ${tagsHTML}
+                </div>
+                <p class="price">${product.precio ? '$' + product.precio : 'Precio no disponible'}</p>
+                <p>${product.descripción || 'Sin descripción'}</p>
+                <div class="btn-container">
+                    <a href="#" class="btn btn-primary" onclick="showConfirmation('${product.título || 'Sin título'}', '${product.precio ? '$' + product.precio : 'Precio no disponible'}')">Comprar</a>
+                </div>
+            </div>
+        `;
+        return card;
+    }
+         // Función para mostrar el modal de confirmación
+         window.showConfirmation = function(productName, productPrice) {
+            productDetails.innerHTML = `
+                <p><strong>Producto:</strong> ${productName}</p>
+                <p><strong>Precio:</strong> ${productPrice}</p>
+                ¿Deseas confirmar esta compra?
+            `;
+            purchaseModal.style.display = 'block';
+        };
+
+           window.addEventListener('click', function(event) {
+            if (event.target === purchaseModal) {
+                purchaseModal.style.display = 'none';
+            }
+        });
+          // Cerrar el modal al hacer clic en la X
+        closePurchaseModal.addEventListener('click', function() {
+            purchaseModal.style.display = 'none';
+        });
+
+        // Cerrar el modal al hacer clic en Cancelar
+        cancelPurchase.addEventListener('click', function() {
+            purchaseModal.style.display = 'none';
+        });
+
+    // Confirmar la compra y redirigir a WhatsApp
+     confirmPurchase.addEventListener('click', function() {
+        purchaseModal.style.display = 'none';
+            openWhatsApp(productDetails.querySelector('p:nth-child(1)').textContent.split(': ')[1],
+                productDetails.querySelector('p:nth-child(2)').textContent.split(': ')[1]);
+        });
+
+     function openWhatsApp(productName, productPrice) {
+            const message = `Hola, me gustaría comprar ${productName} por ${productPrice}`;
+            const phoneNumber = "1234567890"; // Reemplazar con tu número real
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+      // Cargar los productos destacados al cargar la página
+        cargarProductosDestacados();
+
+        // Generar el calendario inicial
+        generateCalendar();
+            });
+    </script>
+</body>
+
+</html>

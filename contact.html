@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Moderno - Contacto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Encabezado */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            padding: 15px 0;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #8B4513;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style-type: none;
+        }
+        
+        .nav-links li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links li a:hover {
+            color: #8B4513;
+        }
+        
+        /* Sección Hero */
+        .hero {
+            background-image: url("https://raw.githubusercontent.com/Iaac17/imagen_Cafe/9079ddaf5b74001e1226412c5b4c84b0a1d4003d/Banners/B4.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(111, 78, 55, 0.6);
+            background-blend-mode: multiply;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Información de Contacto */
+        .contact-info {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #8B4513;
+            font-size: 2rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .info-card {
+            background-color: #F5DEB3;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-card i {
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-bottom: 20px;
+        }
+        
+        .info-card h3 {
+            color: #8B4513;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* Formulario de Contacto */
+        .contact-form {
+            padding: 60px 0;
+            background-color: #F5DEB3;
+        }
+        
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #8B4513;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: #8B4513;
+            color: white;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+        }
+        
+        /* Mapa */
+        .map-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        
+        .map-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .map-placeholder {
+            height: 400px;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border-radius: 10px;
+        }
+        
+        .directions {
+            background-color: #F5DEB3;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .directions h3 {
+            color: #8B4513;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .directions ul {
+            list-style-type: none;
+        }
+        
+        .directions li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .directions li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #8B4513;
+            font-weight: bold;
+        }
+        
+        /* FAQ */
+        .faq-section {
+            padding: 60px 0;
+            background-color: #F5DEB3;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #8B4513;
+            font-size: 1.2rem;
+        }
+        
+        /* Pie de página */
+        footer {
+            background-color: #8B4513;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #F5DEB3;
+        }
+        
+        .footer-section ul {
+            list-style-type: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #F5DEB3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #fff;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Modal de confirmación */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1050;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #8B4513;
+        }
+        
+        .close-modal:hover {
+            color: #D2691E;
+        }
+        
+        .modal-title {
+            color: #8B4513;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .message-details {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #F5DEB3;
+            border-radius: 5px;
+            line-height: 1.6;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .map-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 90%;
+                margin: 20% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-coffee"></i>
+                        <span>Café Moderno</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="products.html">Productos</a></li>
+                    <li><a href="foro.html">Foro</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Contáctanos</h1>
+            <p>Estamos aquí para responder tus preguntas y escuchar tus comentarios</p>
+        </div>
+    </section>
+
+    <!-- Información de Contacto -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <i>📍</i>
+                    <h3>Dirección</h3>
+                    <p>Calle del Café 123</p>
+                    <p>Ciudad Cafetera, CP 12345</p>
+                </div>
+                <div class="info-card">
+                    <i>📞</i>
+                    <h3>Teléfono</h3>
+                    <p>(123) 456-7890</p>
+                    <p>(123) 456-7891</p>
+                </div>
+                <div class="info-card">
+                    <i>✉️</i>
+                    <h3>Email</h3>
+                    <p>info@cafemoderno.com</p>
+                    <p>reservas@cafemoderno.com</p>
+                </div>
+                <div class="info-card">
+                    <i>🕒</i>
+                    <h3>Horario</h3>
+                    <p>Lun-Vie: 7:00 - 21:00</p>
+                    <p>Sáb-Dom: 8:00 - 22:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section class="contact-form">
+        <div class="container">
+            <h2>Envíanos un Mensaje</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Asunto</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Mapa -->
+    <section class="map-section">
+        <div class="container">
+            <h2>Encuéntranos</h2>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <span>📍 Mapa de ubicación</span>
+                </div>
+                <div class="directions">
+                    <h3>Cómo Llegar</h3>
+                    <ul>
+                        <li><strong>En Metro:</strong> Línea 1, estación "Café Central", salida norte.</li>
+                        <li><strong>En Autobús:</strong> Líneas 23, 45 y 67, parada "Plaza del Café".</li>
+                        <li><strong>En Coche:</strong> Estacionamiento disponible en el edificio.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Puedo hacer reservaciones para grupos grandes?</h3>
+                    <p>Sí, aceptamos reservaciones para grupos de 6 o más personas. Te recomendamos reservar con al menos 48 horas de anticipación.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Ofrecen opciones veganas y sin gluten?</h3>
+                    <p>Sí, tenemos varias opciones veganas y sin gluten en nuestro menú. Por favor, consulta con nuestro personal para más detalles.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Puedo comprar granos de café para llevar?</h3>
+                    <p>Absolutamente. Vendemos nuestros granos de café tostados en bolsas de 250g y 500g. También ofrecemos suscripciones mensuales.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Tienen WiFi gratuito?</h3>
+                    <p>Sí, ofrecemos WiFi gratuito para todos nuestros clientes. La contraseña está disponible en la caja.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-coffee"></i>
+                        <span>Café Moderno</span>
+                    </div>
+                    <p>Donde cada taza cuenta una historia y cada visita se convierte en un recuerdo.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="products.html">Productos</a></li>
+                        <li><a href="foro.html">Foro</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Horario</h3>
+                    <ul>
+                        <li>Lunes a Viernes: 7:00 - 21:00</li>
+                        <li>Sábados y Domingos: 8:00 - 22:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> Café Moderno. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de confirmación de mensaje -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3 class="modal-title">Confirmar Envío</h3>
+            <div class="message-details" id="messageDetails">
+                <!-- Los detalles del mensaje se insertarán aquí -->
+            </div>
+            <div class="modal-buttons">
+                <button id="confirmSend" class="btn btn-primary">Confirmar y Enviar</button>
+                <button id="cancelSend" class="btn btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script para enviar el formulario a WhatsApp
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const confirmationModal = document.getElementById('confirmationModal');
+            const closeModal = document.getElementById('closeModal');
+            const confirmSend = document.getElementById('confirmSend');
+            const cancelSend = document.getElementById('cancelSend');
+            const messageDetails = document.getElementById('messageDetails');
+            
+            // Variables para almacenar los datos del formulario
+            let formData = {
+                name: '',
+                email: '',
+                subject: '',
+                message: ''
+            };
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Recoger los datos del formulario
+                formData.name = document.getElementById('name').value;
+                formData.email = document.getElementById('email').value;
+                formData.subject = document.getElementById('subject').value;
+                formData.message = document.getElementById('message').value;
+                
+                // Actualizar los detalles del mensaje en el modal
+                messageDetails.innerHTML = `
+                    <p><strong>Nombre:</strong> ${formData.name}</p>
+                    <p><strong>Email:</strong> ${formData.email}</p>
+                    <p><strong>Asunto:</strong> ${formData.subject}</p>
+                    <p><strong>Mensaje:</strong> ${formData.message}</p>
+                `;
+                
+                // Mostrar el modal de confirmación
+                confirmationModal.style.display = 'block';
+            });
+            
+            // Cerrar el modal al hacer clic en la X
+            closeModal.addEventListener('click', function() {
+                confirmationModal.style.display = 'none';
+            });
+            
+            // Cerrar el modal al hacer clic en Cancelar
+            cancelSend.addEventListener('click', function() {
+                confirmationModal.style.display = 'none';
+            });
+            
+            // Confirmar el envío y redirigir a WhatsApp
+            confirmSend.addEventListener('click', function() {
+                confirmationModal.style.display = 'none';
+                sendWhatsAppMessage(formData);
+            });
+            
+            // Cerrar el modal al hacer clic fuera de él
+            window.addEventListener('click', function(event) {
+                if (event.target === confirmationModal) {
+                    confirmationModal.style.display = 'none';
+                }
+            });
+            
+            // Función para enviar mensaje de WhatsApp
+            function sendWhatsAppMessage(data) {
+                const whatsappMessage = 
+                    `Nombre: ${data.name}%0A` +
+                    `Email: ${data.email}%0A` +
+                    `Asunto: ${data.subject}%0A` +
+                    `Mensaje: ${data.message}`;
+                
+                const phoneNumber = "1234567890"; // Reemplazar con tu número real
+                window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, '_blank');
+                
+                // Opcional: Limpiar el formulario después de enviar
+                contactForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>
+

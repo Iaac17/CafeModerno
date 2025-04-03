@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Moderno - Productos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            padding: 15px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #8B4513;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .nav-links li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #8B4513;
+        }
+
+        /* Sección Hero */
+        .hero {
+            background-image: url("https://raw.githubusercontent.com/Iaac17/imagen_Cafe/403d6c9c9630ee17503ed536a8aaef79f07a9fcd/Banners/B2.jpeg");
+            background-size: cover;
+            /* Hace que la imagen cubra todo el contenedor */
+            background-position: center;
+            /* Centra la imagen */
+            background-color: rgba(111, 78, 55, 0.6);
+            background-blend-mode: multiply;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .btn-primary {
+            background-color: #8B4513;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #D2691E;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Productos */
+        .products-section {
+            padding: 60px 0;
+            background-color: #F5DEB3;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #8B4513;
+            font-size: 2rem;
+        }
+
+        .product-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            border: none;
+            background-color: #f4f4f4;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            background-color: #8B4513;
+            color: white;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            background-color: #D2B48C;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-info h3 {
+            color: #8B4513;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            background-color: #F5DEB3;
+            color: #8B4513;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #D2691E;
+            margin: 10px 0;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .product-description {
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            display: none;
+        }
+
+        .product-category.active {
+            display: block;
+        }
+
+        #viewLessCafes {
+            display: none;
+        }
+
+        /* Centrar el botón de comprar */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #8B4513;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #F5DEB3;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #F5DEB3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Modal de confirmación */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1050;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #8B4513;
+        }
+
+        .close-modal:hover {
+            color: #D2691E;
+        }
+
+        .modal-title {
+            color: #8B4513;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .product-details {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #F5DEB3;
+            border-radius: 5px;
+            line-height: 1.6;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .modal-content {
+                width: 90%;
+                margin: 20% auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="products">
+    <!-- Encabezado -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-coffee"></i>
+                        <span>Café Moderno</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="products.html">Productos</a></li>
+                    <li><a href="foro.html">Foro</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Nuestros Productos</h1>
+            <p>Descubre nuestra selección de cafés, pasteles, desayunos y café puro para llevar</p>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section class="products-section">
+        <div class="container">
+            <div class="product-tabs">
+                <button class="tab-button active" data-category="cafes">Cafés</button>
+                <button class="tab-button" data-category="pasteles">Pasteles</button>
+                <button class="tab-button" data-category="desayunos">Desayunos</button>
+                <button class="tab-button" data-category="cafePuro">Café Puro</button>
+            </div>
+
+            <!-- Contenedores de productos (ahora vacíos) -->
+            <div id="cafes" class="product-category active">
+                <div class="product-grid" id="cafesGrid"></div>
+                <div class="text-center" style="margin-top: 30px;">
+                    <a href="#" class="btn btn-secondary" id="loadMoreCafes">Ver Más Productos</a>
+                    <a href="#" class="btn btn-secondary" id="viewLessCafes">Ver Menos Productos</a>
+                </div>
+            </div>
+            <div id="pasteles" class="product-category">
+                <div class="product-grid" id="pastelesGrid"></div>
+                <div class="text-center" style="margin-top: 30px;">
+                    <a href="#" class="btn btn-secondary" id="loadMorepasteles">Ver Más Productos</a>
+                    <a href="#" class="btn btn-secondary" id="viewLesspasteles">Ver Menos Productos</a>
+                </div>
+            </div>
+            <div id="desayunos" class="product-category">
+                <div class="product-grid" id="desayunosGrid"></div>
+                <div class="text-center" style="margin-top: 30px;">
+                    <a href="#" class="btn btn-secondary" id="loadMoredesayunos">Ver Más Productos</a>
+                    <a href="#" class="btn btn-secondary" id="viewLessdesayunos">Ver Menos Productos</a>
+                </div>
+            </div>
+            <div id="cafePuro" class="product-category">
+                <div class="product-grid" id="cafePuroGrid"></div>
+                <div class="text-center" style="margin-top: 30px;">
+                    <a href="#" class="btn btn-secondary" id="loadMorecafePuro">Ver Más Productos</a>
+                    <a href="#" class="btn btn-secondary" id="viewLesscafePuro">Ver Menos Productos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-coffee"></i>
+                        <span>Café Moderno</span>
+                    </div>
+                    <p>Donde cada taza cuenta una historia y cada visita se convierte en un recuerdo.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="products.html">Productos</a></li>
+                        <li><a href="foro.html">Foro</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Horario</h3>
+                    <ul>
+                        <li>Lunes a Viernes: 7:00 - 21:00</li>
+                        <li>Sábados y Domingos: 8:00 - 22:00</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span id="current-year">2025</span> Café Moderno. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de confirmación de compra -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">×</span>
+            <h3 class="modal-title">Confirmar Compra</h3>
+            <div class="product-details" id="productDetails">
+                <!-- Los detalles del producto se insertarán aquí -->
+            </div>
+            <div class="modal-buttons">
+                <button id="confirmPurchase" class="btn btn-primary">Confirmar y Comprar</button>
+                <button id="cancelPurchase" class="btn btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const productCategories = document.querySelectorAll('.product-category');
+            const confirmationModal = document.getElementById('confirmationModal');
+            const closeModal = document.getElementById('closeModal');
+            const confirmPurchase = document.getElementById('confirmPurchase');
+            const cancelPurchase = document.getElementById('cancelPurchase');
+            const productDetails = document.getElementById('productDetails');
+
+            // URL de la API de Google Apps Script
+            const apiUrl =
+                "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLhg-We4nw3pDDyLusnQAbQSb58dRH0g2-BgMEEVBv-1McsQquyDilAodpdCOIYdLyMBGNWoZu2lMjyfOuiYQyM-4tYFdkv579469WUKJl4lTPDNhS1vJ42BpqgLopksqZ8Bx1uTUsAkFRmVyc1ihvtTqufX1amDHr8TeUddkF7MaDpFQzXbQss7p23V7SU_ftcKCsMLN96f_D-ozo4A23hXOD9wPzYtOW5neItvymfByxTeMVdBgo_qKfD4gce1DSmqVO5Pb8ZLC2KZXRLaEvu-iOkgjA&lib=MIAaDXYW1K6rwn-7SZE5TVVmTezcJkO2f"; // Reemplaza con tu URL real
+            const productsPerPage = 4; // Cambia este número para ajustar cuántos productos se muestran inicialmente
+
+            // Mapeo de categorías a IDs de grid y botones
+            const categoryConfig = {
+                cafes: {
+                    gridId: 'cafesGrid',
+                    loadMoreButtonId: 'loadMoreCafes',
+                    viewLessButtonId: 'viewLessCafes'
+                },
+                pasteles: {
+                    gridId: 'pastelesGrid',
+                    loadMoreButtonId: 'loadMorepasteles',
+                    viewLessButtonId: 'viewLesspasteles'
+                },
+                desayunos: {
+                    gridId: 'desayunosGrid',
+                    loadMoreButtonId: 'loadMoredesayunos',
+                    viewLessButtonId: 'viewLessdesayunos'
+                },
+                cafePuro: {
+                    gridId: 'cafePuroGrid',
+                    loadMoreButtonId: 'loadMorecafePuro',
+                    viewLessButtonId: 'viewLesscafePuro'
+                }
+            };
+
+            // Función para cargar los productos desde la API
+            async function cargarProductos() {
+                try {
+                    const response = await fetch(apiUrl);
+
+                    if (!response.ok) {
+                        throw new Error(`Error al obtener los datos. Código de estado: ${response.status}`);
+                    }
+
+                    const datos = await response.json();
+
+                    // Iterar sobre cada categoría de producto
+                    for (const category in categoryConfig) {
+                        if (datos.hasOwnProperty(category)) {
+                            const productList = datos[category]; // Obtener la lista de productos para la categoría
+                            const config = categoryConfig[category]; // Obtener la configuración para la categoría
+                            const grid = document.getElementById(config.gridId); // Obtener el elemento del grid
+                            const loadMoreButton = document.getElementById(config.loadMoreButtonId);
+                            const viewLessButton = document.getElementById(config.viewLessButtonId);
+
+                            if (grid) {
+                                grid.innerHTML = ''; // Limpiar el grid antes de agregar nuevos productos
+
+                                // Mostrar solo los primeros productosPerPage productos
+                                for (let i = 0; i < Math.min(productList.length, productsPerPage); i++) {
+                                    const product = productList[i];
+                                    const card = crearTarjetaProducto(product); // Crear la tarjeta de producto
+                                    grid.appendChild(card); // Agregar la tarjeta al grid
+                                }
+
+                                // Manejar visibilidad de botones "Ver más" y "Ver menos"
+                                if (productList.length > productsPerPage) {
+                                    loadMoreButton.style.display = 'inline-block';
+                                    viewLessButton.style.display = 'none';
+                                } else {
+                                    loadMoreButton.style.display = 'none';
+                                    viewLessButton.style.display = 'none';
+                                }
+                            } else {
+                                console.error(`No se encontró el elemento del grid con el ID: ${config.gridId}`);
+                            }
+                        } else {
+                            console.warn(`La categoría "${category}" no existe en los datos de la API.`);
+                        }
+                    }
+
+                    // Agregar listeners para "Ver más" después de cargar los productos
+                    agregarListenersVerMas();
+
+                } catch (error) {
+                    console.error("Error al cargar los productos:", error);
+                }
+            }
+
+            // Función para crear la tarjeta de producto
+            function crearTarjetaProducto(product) {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+
+                // Construir HTML para los tags
+                let tagsHTML = '';
+                if (product.características && product.características.tags && Array.isArray(product.características.tags)) {
+                    product.características.tags.forEach(tag => {
+                        tagsHTML += `<span class="tag">${tag}</span>`;
+                    });
+                }
+
+                card.innerHTML = `
+                    <div class="product-image" style="background-image: url('${product['imagen (url)'] ||
+                    'URL_DE_IMAGEN_POR_DEFECTO'}'); background-size: cover; background-position: center;"></div>
+                    <div class="product-info">
+                        <h3>${product.título || 'Sin título'}</h3>
+                        <div class="product-tags">
+                            ${tagsHTML}
+                        </div>
+                        <p class="product-description">${product.descripción || 'Sin descripción'}</p>
+                        <p class="price">${product.precio ? '$' + product.precio : 'Precio no disponible'}</p>
+                        <div class="btn-container">
+                            <a href="#" class="btn btn-primary" onclick="showConfirmation('${product.título ||
+                    'Sin título'}', '${product.precio ? '$' + product.precio : 'Precio no disponible'}')">Comprar</a>
+                        </div>
+                    </div>
+                `;
+                return card;
+            }
+
+            // Función para mostrar el modal de confirmación
+            window.showConfirmation = function(productName, productPrice) {
+                productDetails.innerHTML = `
+                    <p><strong>Producto:</strong> ${productName}</p>
+                    <p><strong>Precio:</strong> ${productPrice}</p>
+                    ¿Deseas confirmar esta compra?
+                `;
+                confirmationModal.style.display = 'block';
+            };
+
+            // Cerrar el modal al hacer clic en la X
+            closeModal.addEventListener('click', function() {
+                confirmationModal.style.display = 'none';
+            });
+
+            // Cerrar el modal al hacer clic en Cancelar
+            cancelPurchase.addEventListener('click', function() {
+                confirmationModal.style.display = 'none';
+            });
+
+            // Confirmar la compra y redirigir a WhatsApp
+            confirmPurchase.addEventListener('click', function() {
+                confirmationModal.style.display = 'none';
+                openWhatsApp(productDetails.querySelector('p:nth-child(1)').textContent.split(': ')[1],
+                    productDetails.querySelector('p:nth-child(2)').textContent.split(': ')[1]);
+            });
+
+            // Cerrar el modal al hacer clic fuera de él
+            window.addEventListener('click', function(event) {
+                if (event.target === confirmationModal) {
+                    confirmationModal.style.display = 'none';
+                }
+            });
+
+            // Función para enviar mensaje de WhatsApp
+            function openWhatsApp(productName, productPrice) {
+                const message = `Hola, me gustaría comprar ${productName} por ${productPrice}`;
+                const phoneNumber = "1234567890"; // Reemplazar con tu número real
+                window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+            }
+
+            function agregarListenersVerMas() {
+                for (const category in categoryConfig) {
+                    const config = categoryConfig[category];
+                    const grid = document.getElementById(config.gridId);
+                    const loadMoreButton = document.getElementById(config.loadMoreButtonId);
+                    const viewLessButton = document.getElementById(config.viewLessButtonId);
+
+                    if (loadMoreButton) {
+                        loadMoreButton.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            mostrarMasProductos(category, grid, loadMoreButton, viewLessButton);
+                        });
+                    }
+
+                    if (viewLessButton) {
+                        viewLessButton.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            mostrarMenosProductos(category, grid, loadMoreButton, viewLessButton);
+                        });
+                    }
+                }
+            }
+
+            // Función para mostrar más productos
+            async function mostrarMasProductos(category, grid, loadMoreButton, viewLessButton) {
+                const response = await fetch(apiUrl);
+                const datos = await response.json();
+                const productList = datos[category];
+
+                grid.innerHTML = ''; // Limpiar el grid
+
+                for (let i = 0; i < productList.length; i++) {
+                    const product = productList[i];
+                    const card = crearTarjetaProducto(product);
+                    grid.appendChild(card);
+                }
+
+                loadMoreButton.style.display = 'none';
+                viewLessButton.style.display = 'inline-block';
+            }
+
+            // Función para mostrar menos productos
+            async function mostrarMenosProductos(category, grid, loadMoreButton, viewLessButton) {
+                const response = await fetch(apiUrl);
+                const datos = await response.json();
+                const productList = datos[category];
+
+                grid.innerHTML = ''; // Limpiar el grid
+
+                for (let i = 0; i < Math.min(productList.length, productsPerPage); i++) {
+                    const product = productList[i];
+                    const card = crearTarjetaProducto(product);
+                    grid.appendChild(card);
+                }
+
+                loadMoreButton.style.display = 'inline-block';
+                viewLessButton.style.display = 'none';
+            }
+
+            // Cargar los productos al cargar la página
+            cargarProductos();
+
+            // Cambiar entre pestañas de productos (adaptado para la carga dinámica)
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover clase active de todos los botones
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Agregar clase active al botón clickeado
+                    this.classList.add('active');
+
+                    // Ocultar todas las categorías
+                    productCategories.forEach(category => {
+                        category.classList.remove('active');
+                    });
+
+                    // Mostrar la categoría seleccionada
+                    const categoryId = this.getAttribute('data-category');
+                    document.getElementById(categoryId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

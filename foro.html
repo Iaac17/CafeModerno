@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Moderno - Inicio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            padding: 15px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #8B4513;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .nav-links li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #8B4513;
+        }
+
+        /* Sección Hero */
+        .hero {
+            background-image: url("https://image.pollinations.ai/prompt/foro%20de%20cafe%20y%20galeria%20con%20blogs?width=1024&height=576&seed=246447&model=flux-realism&nologo=true");
+            background-size: cover;
+            /* Hace que la imagen cubra todo el contenedor */
+            background-position: center;
+            /* Centra la imagen */
+            background-color: rgba(111, 78, 55, 0.6);
+            background-blend-mode: multiply;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .btn-primary {
+            background-color: #8B4513;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #D2691E;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Reservaciones */
+        .reservation {
+            padding: 60px 0;
+            background-color: #8B4513;
+            color: white;
+        }
+
+        .reservation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .reservation-calendar {
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .reservation-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .reservation-info ul {
+            list-style-type: none;
+        }
+
+        .reservation-info li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .reservation-info li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #F5DEB3;
+            font-weight: bold;
+        }
+
+        /* Información */
+        .info-section {
+            padding: 60px 0;
+            background-color: #f4f4f4;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            color: #8B4513;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #8B4513;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #F5DEB3;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #F5DEB3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Estilos para Galería */
+        .gallery {
+            padding: 60px 0;
+        }
+
+        .gallery h2, .blog h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #8B4513;
+            margin-bottom: 30px; /* Espacio entre el título y la galería/blog */
+        }
+
+        .gallery-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative; /* For positioning buttons */
+        }
+
+        .gallery-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column; /* Stack image above text */
+            transition: transform 0.3s ease; /* Suaviza la transición */
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-image {
+            height: 400px;
+            background-color: #D2B48C;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .gallery-info {
+            padding: 15px;
+            font-size: 0.9em;
+        }
+
+        .gallery-info h3 {
+            color: #8B4513;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        .carousel-buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .carousel-button {
+            background-color: #8B4513;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Estilos para Blog (Estilo Foro con Imagen) */
+        .blog {
+            padding: 60px 0;
+        }
+
+        .blog-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .blog-post {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: background-color 0.3s ease; /* Suaviza la transición */
+        }
+
+        .blog-post:hover {
+            background-color: #f0f0f0;
+        }
+
+        .blog-info {
+            float: left;
+            width: 50%;
+            padding: 20px;
+        }
+
+        .blog-info h3 {
+            color: #8B4513;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .blog-date {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .blog-image {
+            float: right;
+            width: 50%;
+            height: 250px;
+            background-color: #D2B48C;
+            background-size: cover;
+            background-position: center;
+        }
+
+         /* Media Queries para hacerlo Responsivo */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .nav .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links li a {
+                padding: 10px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .reservation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-info, .blog-image {
+                width: 100%;
+                float: none;
+            }
+
+            .blog-image {
+                height: 200px; /* Reducir la altura de la imagen en pantallas pequeñas */
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-coffee"></i>
+                        <span>Café Moderno</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="products.html">Productos</a></li>
+                    <li><a href="foro.html">Foro</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Nuestro Foro de Café</h1>
+            <p>Explora nuestra galería y sumérgete en el mundo del café a través de las historias de nuestro blog. ¡Comparte tus propias experiencias!</p>
+            <div>
+                <a href="#blog" class="btn btn-primary">Ver Blog</a>
+                <a href="#gallery" class="btn btn-secondary">Ver Galería</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Nuestra Galería</h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Images will be loaded here -->
+            </div>
+            <div class="carousel-buttons">
+                <button class="carousel-button" id="prevButton">Anterior</button>
+                <button class="carousel-button" id="nextButton">Siguiente</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2>Nuestro Blog</h2>
+            <div class="blog-grid" id="blogGrid">
+                <!-- Aquí se insertarán las entradas del blog -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Información -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <i>🕒</i>
+                    <h3>Horario</h3>
+                    <p>Lunes a Viernes: 7:00 - 21:00</p>
+                    <p>Sábados y Domingos: 8:00 - 22:00</p>
+                </div>
+                <div class="info-card">
+                    <i>📍</i>
+                    <h3>Ubicación</h3>
+                    <p>Calle del Café 123</p>
+                    <p>Ciudad Cafetera, CP 12345</p>
+                </div>
+                <div class="info-card">
+                    <i>📞</i>
+                    <h3>Contacto</h3>
+                    <p>Tel: (123) 456-7890</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+      <div class="container">
+          <div class="footer-content">
+              <div class="footer-section">
+                  <div class="logo">
+                      <i class="fas fa-coffee"></i>
+                      <span>Café Moderno</span>
+                  </div>
+                  <p>Donde cada taza cuenta una historia y cada visita se convierte en un recuerdo.</p>
+              </div>
+
+              <div class="footer-section">
+                  <h3>Enlaces</h3>
+                  <ul>
+                      <li><a href="index.html">Inicio</a></li>
+                      <li><a href="about.html">Nosotros</a></li>
+                      <li><a href="products.html">Productos</a></li>
+                      <li><a href="foro.html">Foro</a></li>
+                      <li><a href="contact.html">Contacto</a></li>
+                  </ul>
+              </div>
+
+              <div class="footer-section">
+                  <h3>Horario</h3>
+                  <ul>
+                      <li>Lunes a Viernes: 7:00 - 21:00</li>
+                      <li>Sábados y Domingos: 8:00 - 22:00</li>
+                  </ul>
+              </div>
+
+              <div class="footer-section">
+                  <h3>Síguenos</h3>
+                  <div class="social-links">
+                      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                  </div>
+              </div>
+          </div>
+
+          <div class="footer-bottom">
+              <p>© <span id="current-year">2025</span> Café Moderno. Todos los derechos reservados.</p>
+          </div>
+      </div>
+  </footer>
+
+    <script>
+        // Establecer el año actual en el footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // API URLS
+        const apiUrl =
+            "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLh90xONlvRVLRpVqF1mVSYvbxB64jwjFcU1ZmowjGcpfsDARpW0s3nNpDRgZK0--hnhmbqX5io-R-gLmDqpOOajWE84G19PrrmiOJi-2too5fZURv_YeRsCnk4UUBrvjbcUKm1C6T0Cr_l2zEWPZ4kMUn2fdW0mBbf_RE4muSj3zc-UpmvjZuEyZ3zND5jafEnffm9gc5JmSb2rE_ebp-MnT_9q7GjwsMTvr_i4lhix5zpdnxP4Obe9rS5BJaeTyIE_kdxj7tQrxj5j2RzmSHMfFmyMnA&lib=MIAaDXYW1K6rwn-7SZE5TVVmTezcJkO2f"; // Reemplaza con la URL de tu API Google Sheets
+
+        // Obtener los contenedores HTML
+        const galleryGrid = document.getElementById('galleryGrid');
+        const blogGrid = document.getElementById('blogGrid');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+
+        let galleryItemsData = []; // Store gallery data here
+        let currentIndex = 0;
+
+        // Function to load and display the gallery
+        async function loadGallery() {
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error(`Error al obtener los datos de la galería. Código de estado: ${response.status}`);
+                }
+                const data = await response.json();
+
+                if (data && data.gallery && Array.isArray(data.gallery)) {
+                    galleryItemsData = data.gallery; // Store the gallery data
+                    displayGallery(); // Initial display
+                } else {
+                    console.warn("No se encontraron elementos de la galería o el formato de los datos es incorrecto.");
+                    galleryGrid.innerHTML = "<p>No se encontraron elementos en la galería.</p>";
+                }
+            } catch (error) {
+                console.error("Error al cargar la galería:", error);
+                galleryGrid.innerHTML = "<p>Error al cargar la galería.</p>";
+            }
+        }
+
+        // Function to display a single gallery item based on the current index
+        function displayGallery() {
+            galleryGrid.innerHTML = ''; // Clear existing content
+
+            const item = galleryItemsData[currentIndex];
+
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            galleryItem.innerHTML = `
+                <div class="gallery-image" style="background-image: url('${item.imageUrl}');"></div>
+                <div class="gallery-info">
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                </div>
+            `;
+            galleryGrid.appendChild(galleryItem);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + galleryItemsData.length) % galleryItemsData.length;
+            displayGallery();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % galleryItemsData.length;
+            displayGallery();
+        }
+
+        // Función para cargar y mostrar el blog
+        async function loadBlog() {
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error(`Error al obtener los datos del blog. Código de estado: ${response.status}`);
+                }
+                const data = await response.json();
+
+                if (data && data.blog && Array.isArray(data.blog)) {
+                    displayBlog(data.blog);
+                } else {
+                    console.warn("No se encontraron entradas del blog o el formato de los datos es incorrecto.");
+                    blogGrid.innerHTML = "<p>No se encontraron entradas en el blog.</p>";
+                }
+            } catch (error) {
+                console.error("Error al cargar el blog:", error);
+                blogGrid.innerHTML = "<p>Error al cargar el blog.</p>";
+            }
+        }
+
+        // Función para mostrar el blog en el grid
+        function displayBlog(blogPosts) {
+            blogGrid.innerHTML = ''; // Limpiar el grid antes de agregar las entradas
+
+            blogPosts.forEach(post => {
+                let imageHtml = ''; // Inicializamos la variable
+
+                if (post.imageUrl) { // Solo crear el HTML si hay URL
+                    // Usar la URL de la imagen de la API
+                    imageHtml = `<div class="blog-image" style="background-image: url('${post.imageUrl}');"></div>`;
+                } else {
+                    // Puedes poner una imagen por defecto si no hay URL
+                    imageHtml = `<div class="blog-image" style="background-image: url('URL_DE_IMAGEN_POR_DEFECTO');"></div>`;
+                }
+
+                const blogPost = document.createElement('div');
+                blogPost.className = 'blog-post';
+                blogPost.innerHTML = `
+                    <div class="blog-info">
+                        <h3>${post.title}</h3>
+                        <p class="blog-date">${post.date}</p>
+                        <p>${post.description}</p>
+                    </div>
+                    ${imageHtml}
+                `;
+                blogGrid.appendChild(blogPost);
+            });
+        }
+
+        // Cargar la galería y el blog al cargar la página
+        window.addEventListener('load', () => {
+            loadGallery();
+            loadBlog();
+        });
+
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+    </script>
+
+</body>
+
+</html>
